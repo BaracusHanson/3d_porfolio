@@ -273,7 +273,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.EcranTV.geometry}
-          material={plastiqueNoirMaterial}
+          material={bloom}
           position={[-0.995, 0.7, 0.44]}
           scale={[0.556, 0.276, 0.009]}
         />
@@ -311,7 +311,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.ecrandUltrawide.geometry}
-          material={plastiqueNoirMaterial}
+          material={bloom}
           position={[-0.028, 1.03, 2.184]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[2, 1, 2.5]}

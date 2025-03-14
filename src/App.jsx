@@ -18,6 +18,7 @@ extend({ UnrealBloomPass });
 export default function App() {
   return (
     <Canvas shadows camera={{ position: [1, 1.8, 1.9], fov: 70 }}>
+      
       <CameraControls makeDefault />
       <Experience scale={1} position={[0, 0, 0]} />
       <EffectComposer>
