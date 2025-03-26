@@ -25,12 +25,12 @@ const Experience = () => {
         inclination={50}
         scale={25}
         sunPosition={[20, 15, 65]}
-        position={[3, 5, 0]}
+        // position={[3, 5, 0]}
       />
       <spotLight
         distance={2.5}
         intensity={0.6}
-        position={[-0.028, 1.03, 2.27]}
+        position={[-0.028, 1.2, 2.27]}
         color="#93e2ec"
         power={1}
       />
