@@ -10,7 +10,7 @@ export function Avatar(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/MeTyping.glb')
   const { actions } = useAnimations(animations, group)
-  console.log(animations);
+
 
   useEffect(() => {
     if (actions) {

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import PropTypes from "prop-types";
+import { SectionContext } from "./SectionContext";
+import { useContext } from "react";
 // import { useContext } from "react";
 // import { SectionContext } from "./SectionContext";
 const Section = (props) => {

@@ -4,7 +4,7 @@ import { SectionContext } from "./SectionContext";
 
 const CameraPosition = ({ setCameraPosition, setCameraRotation, setFov }) => {
   const { section } = useContext(SectionContext);
-  console.log(section);
+
   useEffect(() => {
     switch (section) {
       // case 0:

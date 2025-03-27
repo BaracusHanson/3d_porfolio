@@ -28,27 +28,14 @@ export const ScrollManager = () => {
   }, [section]);
 
   useFrame(() => {
-    if (isAnimating.current) {
-      lastScroll.current = data.scroll.current;
-      return;
+    if (isAnimating.current) return;
+
+    const newSection = Math.floor(data.scroll.current * data.pages);
+
+    if (newSection !== section) {
+      setSection(newSection);
     }
 
-    const curSection = Math.floor(data.scroll.current * data.pages);
-    if (data.scroll.current > lastScroll.current && curSection === 0) {
-      setSection(1);
-    }
-    if (data.scroll.current > lastScroll.current && curSection === 1) {
-      setSection(2);
-    }
-    if (data.scroll.current > lastScroll.current && curSection === 2) {
-      setSection(3);
-    }
-    if (
-      data.scroll.current < lastScroll.current &&
-      data.scroll.current < 1 / (data.pages - 1)
-    ) {
-      setSection(0);
-    }
     lastScroll.current = data.scroll.current;
   });
 
