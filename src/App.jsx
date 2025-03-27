@@ -7,38 +7,47 @@ import { useRef, useState } from "react";
 import { ScrollManager } from "./components/ScrollManager";
 import CameraPosition from "./components/CameraPosition";
 import CameraController from "./components/CameraController";
+import Project from "./components/Project";
+import { SectionProvider } from "./components/SectionContext";
 
 export default function App() {
-  const [section, setSection] = useState(0);
+
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   const [cameraRotation, setCameraRotation] = useState([0, 0, 0]);
   const [fov, setFov] = useState(0);
   const cameraRef = useRef();
+
   return (
-    <Canvas
-      shadows
-      camera={{ position: cameraPosition, rotation: cameraRotation, fov: fov }}
-      ref={cameraRef}
-    >
-      <CameraPosition
-        setCameraPosition={setCameraPosition}
-        setCameraRotation={setCameraRotation}
-        setFov={setFov}
-        section={section}
-      />
-      <CameraController
-        cameraPosition={cameraPosition}
-        cameraRotation={cameraRotation}
-        fov={fov}
-      />
-      <ScrollControls pages={4} damping={0.1}>
-        <Scroll html>
-          <Interface />
-          <ScrollManager section={section} onSectionChange={setSection} />
-        </Scroll>
-      </ScrollControls>
-      <Experience scale={1} position={[0, 0, 0]} />
-      <Surround />
-    </Canvas>
+    <SectionProvider>
+      <Canvas
+        shadows
+        camera={{
+          position: cameraPosition,
+          rotation: cameraRotation,
+          fov: fov,
+        }}
+        ref={cameraRef}
+      >
+        <CameraPosition
+          setCameraPosition={setCameraPosition}
+          setCameraRotation={setCameraRotation}
+          setFov={setFov}
+        />
+        <CameraController
+          cameraPosition={cameraPosition}
+          cameraRotation={cameraRotation}
+          fov={fov}
+        />
+        <ScrollControls pages={3} damping={0.1}>
+          <ScrollManager />
+          <Scroll html>
+            <Interface />
+          </Scroll>
+        </ScrollControls>
+        <Project />
+        <Experience scale={1} position={[0, 0, 0]} />
+        <Surround />
+      </Canvas>
+    </SectionProvider>
   );
 }

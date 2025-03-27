@@ -8,7 +8,7 @@ const Section = (props) => {
     <motion.section
       className={`
   h-screen w-screen p-8 max-w-screen-2xl mx-auto
-  flex flex-col items-start justify-center border min-h-screen
+  flex flex-col items-start justify-center  min-h-screen
   `}
       initial={{
         opacity: 0,
@@ -35,10 +35,8 @@ export const Interface = () => {
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
-      <SkillsSection />
-      <Section>
-        <h1>Projets</h1>
-      </Section>
+      <Section></Section>
+      {/* <SkillsSection /> */}
       <ContactSection />
     </div>
   );

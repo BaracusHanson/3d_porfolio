@@ -1,6 +1,6 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-
+import { TvScreen } from "./TvScreen";
 import {
   greenMaterial,
   BlackMaterial,
@@ -272,11 +272,13 @@ export default function Model(props) {
           name="EcranTV"
           castShadow
           receiveShadow
-          geometry={nodes.EcranTV.geometry}
-          material={bloom}
-          position={[-0.995, 0.7, 0.44]}
-          scale={[0.556, 0.276, 0.009]}
-        />
+          // geometry={nodes.EcranTV.geometry}
+          // material={bloom}
+          // position={[-0.995, 0.7, 0.44]}
+          // scale={[0.556, 0.276, 0.009]}
+        >
+          <TvScreen />
+        </mesh>
         {/* <mesh
           name="GrandMirroir"
           castShadow

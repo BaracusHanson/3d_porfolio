@@ -2,8 +2,11 @@ import { useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { SectionContext } from "./SectionContext";
+import { useContext } from "react";
 
-export const ScrollManager = ({ section, onSectionChange }) => {
+export const ScrollManager = () => {
+  const {section, setSection} = useContext(SectionContext);
   const data = useScroll();
   const lastScroll = useRef(0);
   const lastScroll2 = useRef(0);
@@ -40,18 +43,18 @@ export const ScrollManager = ({ section, onSectionChange }) => {
     // Défilement vers le bas
     if (data.scroll.current > lastScroll.current) {
       if (curSection === 0) {
-        onSectionChange(1);
+        setSection(1);
       }
       if (curSection === 1) {
-        onSectionChange(2);
+        setSection(2);
         lastScroll2.current = data.scroll.current;
       }
       if (curSection === 2) {
-        onSectionChange(3);
+        setSection(3);
         lastScroll3.current = data.scroll.current;
       }
       if (curSection === 3) {
-        onSectionChange(4);
+        setSection(4);
         lastScroll4.current = data.scroll.current;
       }
     }
@@ -62,22 +65,22 @@ export const ScrollManager = ({ section, onSectionChange }) => {
         curSection === 3 &&
         data.scroll.current < lastScroll4.current - 1 / data.pages
       ) {
-        onSectionChange(3);
+        setSection(3);
       }
       if (
         curSection === 2 &&
         data.scroll.current < lastScroll3.current - 1 / data.pages
       ) {
-        onSectionChange(2);
+        setSection(2);
       }
       if (
         curSection === 1 &&
         data.scroll.current < lastScroll2.current - 1 / data.pages
       ) {
-        onSectionChange(1);
+        setSection(1);
       }
       if (curSection === 0 && data.scroll.current < 1 / (data.pages - 1)) {
-        onSectionChange(0);
+        setSection(0);
       }
     }
 

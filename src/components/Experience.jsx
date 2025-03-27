@@ -19,7 +19,7 @@ const Experience = () => {
       </directionalLight>
       <ambientLight intensity={0.5} position={[-1, 9, 0]} />
       <Model />;
-      {/* <axesHelper args={[12, 12, 12]} /> */}
+      <axesHelper args={[12, 12, 12]} />
       <hemisphereLight intensity={0.9} color="#93e2ec" groundColor="#505050" />
       <Sky
         inclination={50}
