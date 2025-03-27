@@ -6,13 +6,10 @@ import { SectionContext } from "./SectionContext";
 import { useContext } from "react";
 
 export const ScrollManager = () => {
-  const {section, setSection} = useContext(SectionContext);
+  const { section, setSection } = useContext(SectionContext);
   const data = useScroll();
   const lastScroll = useRef(0);
-  const lastScroll2 = useRef(0);
-  // console.log(lastScroll2);
-  const lastScroll3 = useRef(0);
-  const lastScroll4 = useRef(0);
+
   const isAnimating = useRef(false);
   //   console.log(data);
 
@@ -47,15 +44,12 @@ export const ScrollManager = () => {
       }
       if (curSection === 1) {
         setSection(2);
-        lastScroll2.current = data.scroll.current;
       }
       if (curSection === 2) {
         setSection(3);
-        lastScroll3.current = data.scroll.current;
       }
       if (curSection === 3) {
         setSection(4);
-        lastScroll4.current = data.scroll.current;
       }
     }
 
