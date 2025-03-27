@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import PropTypes from "prop-types";
+// import { useContext } from "react";
+// import { SectionContext } from "./SectionContext";
 const Section = (props) => {
   const { children } = props;
 
@@ -32,11 +34,13 @@ Section.propTypes = {
 };
 
 export const Interface = () => {
+  // const { section, setSection } = useContext(SectionContext);
   return (
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
       <Section></Section>
-      {/* <SkillsSection /> */}
+      <Section></Section>
+
       <ContactSection />
     </div>
   );

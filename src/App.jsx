@@ -38,7 +38,7 @@ export default function App() {
           cameraRotation={cameraRotation}
           fov={fov}
         />
-        <ScrollControls pages={3} damping={0.1}>
+        <ScrollControls pages={4} damping={0.1}>
           <ScrollManager />
           <Scroll html>
             <Interface />
