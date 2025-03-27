@@ -13,7 +13,14 @@ import {
 const Surround = () => {
   return (
     <>
-      {/* <OrbitControls enableZoom={false} /> */}
+      {/* <OrbitControls
+        enableZoom={false}
+        minPolarAngle={Math.PI /48} // 30 degrés en radians (limite vers le bas)
+        maxPolarAngle={Math.PI/2 - Math.PI / 24} // 150 degrés en radians (limite vers le haut)
+        minAzimuthAngle={-Math.PI / 24} // -30 degrés en radians (limite de rotation gauche)
+        maxAzimuthAngle={Math.PI / 24} // 30 degrés en radians (limite de rotation droite)
+      /> */}
+
       <EffectComposer>
         <Bloom
           intensity={1.1}

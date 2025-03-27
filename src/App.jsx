@@ -9,12 +9,12 @@ import CameraPosition from "./components/CameraPosition";
 import CameraController from "./components/CameraController";
 import Project from "./components/Project";
 import { SectionProvider } from "./components/SectionContext";
+import { Avatar } from "./components/Avatar";
 
 export default function App() {
-
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0]);
   const [cameraRotation, setCameraRotation] = useState([0, 0, 0]);
-  const [fov, setFov] = useState(0);
+  const [fov, setFov] = useState(100);
   const cameraRef = useRef();
 
   return (
@@ -47,6 +47,9 @@ export default function App() {
         <Project />
         <Experience scale={1} position={[0, 0, 0]} />
         <Surround />
+        <group position={[-0.08, 0, 1.2]} scale={1} >
+          <Avatar />
+        </group>
       </Canvas>
     </SectionProvider>
   );

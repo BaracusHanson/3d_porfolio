@@ -62,7 +62,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.bretelleChaise.geometry}
           material={plastiqueNoirMaterial}
-          position={[0, 0, 0.141]}
+          position={[-0.1, 0, 0]}
         />
         <mesh
           name="plastiqueChaise"
@@ -70,7 +70,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.plastiqueChaise.geometry}
           material={plastiqueNoirMaterial}
-          position={[0, 0, 0.141]}
+          position={[-0.1, 0, 0.]}
         />
         <mesh
           name="borderChair"
@@ -78,7 +78,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.borderChair.geometry}
           material={bloom}
-          position={[0, 0, 0.141]}
+          position={[-0.1, 0, 0.]}
         />
         <mesh
           name="tissusChaise"
@@ -86,14 +86,14 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.tissusChaise.geometry}
           material={greenMaterial}
-          position={[0, 0, 0.141]}
+          position={[-0.1, 0, 0.]}
         />
         {/* <mesh
           name="Indoor_Table__Plant"
           castShadow
           receiveShadow
           geometry={nodes.Indoor_Table__Plant.geometry}
-          material={greenMatteMaterial}
+          material={greenMaterial}
           position={[0.563, 0.617, -2.356]}
           rotation={[0, 0.597, 0]}
           scale={0.451}
@@ -146,7 +146,6 @@ export default function Model(props) {
           scale={[0.082, 0.18, 0.18]}
         />
         <mesh
-          // ref={ventilateur}
           name="pcVentilateur"
           castShadow
           receiveShadow
