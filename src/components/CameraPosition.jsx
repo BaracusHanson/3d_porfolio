@@ -2,10 +2,22 @@ import React, { useEffect } from "react";
 import { useContext } from "react";
 import { SectionContext } from "./SectionContext";
 
-const CameraPosition = ({ setCameraPosition, setCameraRotation, setFov }) => {
+const CameraPosition = ({
+  setCameraPosition,
+  setCameraRotation,
+  setFov,
+  menuOpened,
+}) => {
   const { section } = useContext(SectionContext);
 
   useEffect(() => {
+    if (menuOpened) {
+      // Si le menu est ouvert, position spéciale pour la caméra
+      setCameraPosition([-0.5, 1.5, 0]);
+      setCameraRotation([0, -Math.PI, 0]);
+      setFov(75);
+      return; // Arrête l'exécution ici si le menu est ouvert
+    }
     switch (section) {
       // case 0:
       //   setCameraPosition([-1.5, 1.4, 1.2]);
@@ -32,7 +44,7 @@ const CameraPosition = ({ setCameraPosition, setCameraRotation, setFov }) => {
         setCameraRotation([0, -1.7, 0]);
         setFov(75);
     }
-  }, [section]);
+  }, [section, menuOpened]);
   return null;
 };
 

@@ -9,7 +9,7 @@ export const TvScreen = () => {
   const textRef = useRef();
   useFrame(() => {
     if (textRef.current && section === 2) {
-      textRef.current.position.y += 0.0025; // Déplace le texte vers le haut
+      textRef.current.position.y += 0.0045; // Déplace le texte vers le haut
       if (textRef.current.position.y > 10) {
         textRef.current.position.y = 0; // Réinitialise la position
       }

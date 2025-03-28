@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { TvScreen } from "./TvScreen";
 import {
@@ -11,10 +11,22 @@ import {
   bloom,
   plastiqueGrisMaterial,
 } from "./Materials";
+import { useFrame } from "@react-three/fiber";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/room.gltf");
+  const light = useRef();
+  const light2 = useRef();
+  const stripe = useRef();
+  const stripe2 = useRef();
 
+  useFrame((state) => {
+    const t = (1 + Math.sin(state.clock.elapsedTime * 1.1)) / 2;
+    stripe.current.color.setRGB(2 + t * 20, 2, 20 + t * 50);
+    stripe2.current.color.setRGB(2 + t * 20, 2, 20 + t * 50);
+    light.current.intensity = 1 + t;
+    light2.current.intensity = 1 + t;
+  });
   return (
     <group {...props} dispose={null}>
       <group name="Scene">
@@ -70,7 +82,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.plastiqueChaise.geometry}
           material={plastiqueNoirMaterial}
-          position={[-0.1, 0, 0.]}
+          position={[-0.1, 0, 0]}
         />
         <mesh
           name="borderChair"
@@ -78,15 +90,19 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.borderChair.geometry}
           material={bloom}
-          position={[-0.1, 0, 0.]}
-        />
+          position={[-0.1, 0, 0]}
+          ref={light}
+        >
+          <meshBasicMaterial ref={stripe} toneMapped={false} />
+        </mesh>
+
         <mesh
           name="tissusChaise"
           castShadow
           receiveShadow
           geometry={nodes.tissusChaise.geometry}
           material={greenMaterial}
-          position={[-0.1, 0, 0.]}
+          position={[-0.1, 0, 0]}
         />
         {/* <mesh
           name="Indoor_Table__Plant"
@@ -106,7 +122,10 @@ export default function Model(props) {
           material={bloom}
           position={[0.057, 0.807, 2.08]}
           scale={0.683}
-        />
+          ref={light2}
+        >
+          <meshBasicMaterial ref={stripe2} toneMapped={false} />
+        </mesh>
         <mesh
           name="enceinteTubePlastique"
           castShadow
@@ -173,7 +192,7 @@ export default function Model(props) {
           position={[0.74, 1.969, 0]}
           rotation={[-Math.PI, 0, -Math.PI]}
           scale={[-1.232, -0.024, -2.385]}
-        />
+        ></mesh>
         <mesh
           name="PlanDeTravail"
           castShadow
@@ -247,7 +266,7 @@ export default function Model(props) {
           position={[-1.035, 0.264, -1.342]}
           rotation={[-Math.PI, 0, -Math.PI]}
           scale={[-0.711, -0.029, -1.148]}
-        />
+        ></mesh>
         <mesh
           name="Coussin"
           castShadow
